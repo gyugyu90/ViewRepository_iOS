@@ -18,36 +18,21 @@ class TermsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         allAgreeBtn.addTarget(self, action: #selector(handleAllAgree), for: .touchUpInside)
-        termAgreeBtn.addTarget(self, action: #selector(handleTermAgree), for: .touchUpInside)
-        privateInfoAgreeBtn.addTarget(self, action: #selector(handlePrivateInfoAgree), for: .touchUpInside)
-        marketingAgreeBtn.addTarget(self, action: #selector(handleMarketingAgree), for: .touchUpInside)
+        termAgreeBtn.addTarget(self, action: #selector(handleIndividualAgree(sender:)), for: .touchUpInside)
+        privateInfoAgreeBtn.addTarget(self, action: #selector(handleIndividualAgree(sender:)), for: .touchUpInside)
+        marketingAgreeBtn.addTarget(self, action: #selector(handleIndividualAgree(sender:)), for: .touchUpInside)
     }
     
     @objc fileprivate func handleAllAgree(){
-        if termAgreeBtn.flag, privateInfoAgreeBtn.flag, marketingAgreeBtn.flag {
-            termAgreeBtn.flag = false
-            privateInfoAgreeBtn.flag = false
-            marketingAgreeBtn.flag = false
-        } else {
-            termAgreeBtn.flag = true
-            privateInfoAgreeBtn.flag = true
-            marketingAgreeBtn.flag = true
-        }
+        let agreesAll = termAgreeBtn.flag && privateInfoAgreeBtn.flag && marketingAgreeBtn.flag
+        termAgreeBtn.flag = !agreesAll
+        privateInfoAgreeBtn.flag = !agreesAll
+        marketingAgreeBtn.flag = !agreesAll
         toggleAllAgree()
     }
     
-    @objc fileprivate func handleTermAgree(){
-        termAgreeBtn.flag = !termAgreeBtn.flag
-        toggleAllAgree()
-    }
-    
-    @objc fileprivate func handlePrivateInfoAgree(){
-        privateInfoAgreeBtn.flag = !privateInfoAgreeBtn.flag
-        toggleAllAgree()
-    }
-    
-    @objc fileprivate func handleMarketingAgree(){
-        marketingAgreeBtn.flag = !marketingAgreeBtn.flag
+    @objc fileprivate func handleIndividualAgree(sender: ToggleButton){
+        sender.flag = !sender.flag
         toggleAllAgree()
     }
     
