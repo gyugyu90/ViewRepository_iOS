@@ -15,6 +15,7 @@
 		913262B3217F469F00C189E9 /* ViewRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913262B2217F469F00C189E9 /* ViewRepositoryTests.swift */; };
 		913262BE217F469F00C189E9 /* ViewRepositoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913262BD217F469F00C189E9 /* ViewRepositoryUITests.swift */; };
 		913262CD217F4FA500C189E9 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913262CC217F4FA500C189E9 /* TermsVC.swift */; };
+		913262CF217F55D500C189E9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913262CE217F55D500C189E9 /* ToggleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		913262BD217F469F00C189E9 /* ViewRepositoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepositoryUITests.swift; sourceTree = "<group>"; };
 		913262BF217F469F00C189E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913262CC217F4FA500C189E9 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		913262CE217F55D500C189E9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				913262CC217F4FA500C189E9 /* TermsVC.swift */,
+				913262CE217F55D500C189E9 /* ToggleButton.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				913262A0217F469D00C189E9 /* RouterViewController.swift in Sources */,
 				9132629E217F469D00C189E9 /* AppDelegate.swift in Sources */,
 				913262CD217F4FA500C189E9 /* TermsVC.swift in Sources */,
+				913262CF217F55D500C189E9 /* ToggleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

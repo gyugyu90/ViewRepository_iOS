@@ -10,44 +10,10 @@ import UIKit
 
 class TermsVC: UIViewController {
 
-    @IBOutlet weak var allAgreeBtn: UIButton!
-    @IBOutlet weak var termAgreeBtn: UIButton!
-    @IBOutlet weak var privateInfoAgreeBtn: UIButton!
-    @IBOutlet weak var marketingAgreeBtn: UIButton!
-    
-    let agreeImage = UIImage(named: "round_check_circle_black_36dp")
-    let disagreeImage = UIImage(named: "round_check_circle_white_36dp")
-    
-    var termAgree = false {
-        didSet {
-            if oldValue {
-                termAgreeBtn.setImage(disagreeImage, for: .normal)
-            } else {
-                termAgreeBtn.setImage(agreeImage, for: .normal)
-            }
-        }
-    }
-    
-    var privateInfoAgree = false {
-        didSet {
-            if oldValue {
-                privateInfoAgreeBtn.setImage(disagreeImage, for: .normal)
-            } else {
-                privateInfoAgreeBtn.setImage(agreeImage, for: .normal)
-            }
-        }
-    }
-    
-    var marketingAgree = false {
-        didSet {
-            if oldValue {
-                marketingAgreeBtn.setImage(disagreeImage, for: .normal)
-            } else {
-                marketingAgreeBtn.setImage(agreeImage, for: .normal)
-            }
-        }
-    }
-    
+    @IBOutlet weak var allAgreeBtn: ToggleButton!
+    @IBOutlet weak var termAgreeBtn: ToggleButton!
+    @IBOutlet weak var privateInfoAgreeBtn: ToggleButton!
+    @IBOutlet weak var marketingAgreeBtn: ToggleButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,44 +24,38 @@ class TermsVC: UIViewController {
     }
     
     @objc fileprivate func handleAllAgree(){
-        if termAgree, privateInfoAgree, marketingAgree {
-            termAgree = false
-            privateInfoAgree = false
-            marketingAgree = false
+        if termAgreeBtn.flag, privateInfoAgreeBtn.flag, marketingAgreeBtn.flag {
+            termAgreeBtn.flag = false
+            privateInfoAgreeBtn.flag = false
+            marketingAgreeBtn.flag = false
         } else {
-            if !termAgree {
-                termAgree = true
-            }
-            if !privateInfoAgree {
-                privateInfoAgree = true
-            }
-            if !marketingAgree {
-                marketingAgree = true
-            }
+            termAgreeBtn.flag = true
+            privateInfoAgreeBtn.flag = true
+            marketingAgreeBtn.flag = true
         }
         toggleAllAgree()
     }
     
     @objc fileprivate func handleTermAgree(){
-        termAgree = !termAgree
+        termAgreeBtn.flag = !termAgreeBtn.flag
         toggleAllAgree()
     }
     
     @objc fileprivate func handlePrivateInfoAgree(){
-        privateInfoAgree = !privateInfoAgree
+        privateInfoAgreeBtn.flag = !privateInfoAgreeBtn.flag
         toggleAllAgree()
     }
     
     @objc fileprivate func handleMarketingAgree(){
-        marketingAgree = !marketingAgree
+        marketingAgreeBtn.flag = !marketingAgreeBtn.flag
         toggleAllAgree()
     }
     
     fileprivate func toggleAllAgree(){
-        if termAgree, privateInfoAgree, marketingAgree {
-            allAgreeBtn.setImage(agreeImage, for: .normal)
+        if termAgreeBtn.flag, privateInfoAgreeBtn.flag, marketingAgreeBtn.flag {
+            allAgreeBtn.flag = true
         } else {
-            allAgreeBtn.setImage(disagreeImage, for: .normal)
+            allAgreeBtn.flag = false
         }
     }
 }
